@@ -38,7 +38,6 @@ public class OptionButton : MonoBehaviour
         {
             callback(this);
         });
-
     }
 
     public void SetColor(Color c)

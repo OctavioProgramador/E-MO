@@ -44,13 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6b15a15c559394f8fb0e880e9d846b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFQu\xE9 emoci\xF3n es esta?"
+  text: "\xBFComo te sientes?"
   options:
   - text: Triste
-    correct: 0
+    correct: 1
   - text: Enojado
     correct: 0
   - text: Sediento
-    correct: 1
+    correct: 0
   - text: Arrepentido
     correct: 0

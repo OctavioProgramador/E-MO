@@ -20,7 +20,7 @@ public class Game_Manager : MonoBehaviour
     {
         m_quizDB = GameObject.FindObjectOfType<QuizDB>();
         m_quizUI = GameObject.FindObjectOfType<QuizUI>();
-
+        m_audioSource = GetComponent<AudioSource>();
         NextQuestion();
     }
 
@@ -36,6 +36,12 @@ public class Game_Manager : MonoBehaviour
 
     private IEnumerator GiveAnswerRoutine(OptionButton optionButton)
     {
+        if(m_audioSource == null){
+            Debug.Log("m_audioSource es null");            
+        }
+        if(optionButton == null){
+            Debug.Log("optionButton es null");            
+        }
         if (m_audioSource.isPlaying)
             m_audioSource.Stop();
         
