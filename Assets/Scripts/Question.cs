@@ -6,4 +6,5 @@ public class Question : MonoBehaviour
 {
     public string text = null;
     public List<Option> options = null;
+    public Sprite emoji = null;
 }

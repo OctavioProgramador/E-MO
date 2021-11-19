@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: "\xBFQu\xE9 emoci\xF3n es esta?"
   options:
-  - text: Triste
+  - text: Aburrido
     correct: 1
   - text: Enojado
     correct: 0
@@ -54,3 +54,4 @@ MonoBehaviour:
     correct: 0
   - text: Arrepentido
     correct: 0
+  emoji: {fileID: 21300000, guid: 048f1fe420d536b4f8b7220c34499c5c, type: 3}

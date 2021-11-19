@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6b15a15c559394f8fb0e880e9d846b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFQu\xE9 lenguaje te gusta m\xE1s?"
+  text: "\xBFQue emoci\xF3n es esta?"
   options:
   - text: c
     correct: 0
@@ -52,5 +52,6 @@ MonoBehaviour:
     correct: 0
   - text: c#
     correct: 0
-  - text: python
+  - text: Sorpresa
     correct: 1
+  emoji: {fileID: 21300000, guid: f8fe133d95e2028489f9c743d3655a4b, type: 3}

@@ -9,9 +9,17 @@ public class QuizUI : MonoBehaviour
     [SerializeField] private Text m_question = null;
     [SerializeField] private List<OptionButton> m_buttonList = null;
 
+    [SerializeField] private Image m_image = null;
+
     public void Construtc(Question q, Action<OptionButton> callback)
     {
         m_question.text = q.text;
+
+        if(m_image != null){
+            if(q.emoji != null){
+                m_image.sprite = q.emoji;
+            }
+        }
 
         for (int n = 0; n < m_buttonList.Count; n++)
         {
