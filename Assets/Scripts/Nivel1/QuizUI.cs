@@ -8,7 +8,7 @@ public class QuizUI : MonoBehaviour
 {
     [SerializeField] private Text m_question = null;
     [SerializeField] private List<OptionButton> m_buttonList = null;
-
+    [SerializeField] public Text m_score = null;
     [SerializeField] private Image m_image = null;
 
     public void Construtc(Question q, Action<OptionButton> callback)

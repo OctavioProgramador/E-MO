@@ -2,19 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(AudioSource))]
-public class Game_Manager : MonoBehaviour
+public class Game_Manager2 : MonoBehaviour
 {
     [SerializeField] private AudioClip m_correctSound = null;
     [SerializeField] private AudioClip m_incorrectSound = null;
     [SerializeField] private Color m_correctColor = Color.black;
     [SerializeField] private Color m_incorrectColor = Color.black;
     [SerializeField] private float m_waitTime = 0.0f;
-
+    /*
+    public UnityEvent ResetearTimer = null;
+    public UnityEvent IniciarTimer = null;
+    */
     private QuizDB m_quizDB = null;
     private QuizUI m_quizUI = null;
     private AudioSource m_audioSource = null;
+
+    private int score = 0;
+    [SerializeField] private int intentos = 3;
 
     private void Start()
     {
@@ -26,6 +33,7 @@ public class Game_Manager : MonoBehaviour
 
     private void NextQuestion()
     {
+       // IniciarTimer.Invoke();
         m_quizUI.Construtc(m_quizDB.GetRandom(), GiveAnswer);
     }
 
@@ -51,18 +59,53 @@ public class Game_Manager : MonoBehaviour
 
         m_audioSource.Play();
 
+       
+
         yield return new WaitForSeconds(m_waitTime);
 
-        if ((bool)optionButton.Option.correct)
+        /*
+        if ((bool)optionButton.Option.correct){
+            score++;
+            m_quizUI.m_score.text =  "Score: "+score.ToString();
             NextQuestion();
+        }
         else
-            GameOver();
+        {
+            intentos--;
+            if(intentos == 0){
+                PlayerPrefs.SetInt("puntuacion", score);
+                GameOver();
+            }else{
+                NextQuestion();
+            }
+        }
+        */
+       // ResetearTimer.Invoke();
+        Evaluar((bool)optionButton.Option.correct);
 
+    }
+
+    public void Evaluar(bool eleccion){
+         if (eleccion){
+            score++;
+            m_quizUI.m_score.text =  "Score: "+score.ToString();
+            NextQuestion();
+        }
+        else
+        {
+            intentos--;
+            if(intentos == 0){
+                PlayerPrefs.SetInt("puntuacion", score);
+                GameOver();
+            }else{
+                NextQuestion();
+             }
+        }
     }
 
     private void GameOver()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
 
