@@ -12,10 +12,9 @@ public class Game_Manager2 : MonoBehaviour
     [SerializeField] private Color m_correctColor = Color.black;
     [SerializeField] private Color m_incorrectColor = Color.black;
     [SerializeField] private float m_waitTime = 0.0f;
-    /*
-    public UnityEvent ResetearTimer = null;
-    public UnityEvent IniciarTimer = null;
-    */
+    
+    public Timer timer = null;
+        
     private QuizDB m_quizDB = null;
     private QuizUI m_quizUI = null;
     private AudioSource m_audioSource = null;
@@ -30,10 +29,9 @@ public class Game_Manager2 : MonoBehaviour
         m_audioSource = GetComponent<AudioSource>();
         NextQuestion();
     }
-
-    private void NextQuestion()
+    public void NextQuestion()
     {
-       // IniciarTimer.Invoke();
+       timer.StartTimer();
         m_quizUI.Construtc(m_quizDB.GetRandom(), GiveAnswer);
     }
 
@@ -59,12 +57,36 @@ public class Game_Manager2 : MonoBehaviour
 
         m_audioSource.Play();
 
-       
+        timer.StopTimer();
+        timer.Reset();
 
         yield return new WaitForSeconds(m_waitTime);
 
-        /*
-        if ((bool)optionButton.Option.correct){
+        Evaluar((bool)optionButton.Option.correct);
+
+    }
+
+    //Metodo que se ejecuta cuando el timer llega a 0
+    public void GiveAnswerTimerEnd(){
+        if(m_audioSource == null){
+            Debug.Log("m_audioSource es null");            
+        }
+        
+        if (m_audioSource.isPlaying)
+            m_audioSource.Stop();
+        
+        m_audioSource.clip =  m_incorrectSound;
+
+        m_audioSource.Play();
+
+        timer.StopTimer();
+        timer.Reset();
+        Evaluar(false);
+    }
+
+    public void Evaluar(bool eleccion){
+       
+        if (eleccion){
             score++;
             m_quizUI.m_score.text =  "Score: "+score.ToString();
             NextQuestion();
@@ -78,28 +100,6 @@ public class Game_Manager2 : MonoBehaviour
             }else{
                 NextQuestion();
             }
-        }
-        */
-       // ResetearTimer.Invoke();
-        Evaluar((bool)optionButton.Option.correct);
-
-    }
-
-    public void Evaluar(bool eleccion){
-         if (eleccion){
-            score++;
-            m_quizUI.m_score.text =  "Score: "+score.ToString();
-            NextQuestion();
-        }
-        else
-        {
-            intentos--;
-            if(intentos == 0){
-                PlayerPrefs.SetInt("puntuacion", score);
-                GameOver();
-            }else{
-                NextQuestion();
-             }
         }
     }
 

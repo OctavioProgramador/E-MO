@@ -13,7 +13,7 @@ public class PuntuacionManager : MonoBehaviour
 
     void Start()
     {
-        puntuacion.text = "Tu puntuacionn es: " + PlayerPrefs.GetInt("puntacion");
+        puntuacion.text = "Tu puntuacion es: " + PlayerPrefs.GetInt("puntuacion");
         if(salir != null) salir.onClick.AddListener(() => SceneManager.LoadScene(0));
         if(reiniciar != null) reiniciar.onClick.AddListener(() => SceneManager.LoadScene(0));
     }
