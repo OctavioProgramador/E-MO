@@ -44,14 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6b15a15c559394f8fb0e880e9d846b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFQue emoci\xF3n es esta?"
+  text: 
   options:
-  - text: 1
+  - text: Feliz
     correct: 0
-  - text: 2
+  - text: Aburrido
     correct: 0
-  - text: 3
+  - text: Triste
     correct: 0
   - text: Enojado
     correct: 1
-  emoji: {fileID: 21300000, guid: 077b421d90202e04a9f8821fd533703a, type: 3}
+  emoji: {fileID: 21300000, guid: 02e98e3e9f4490643a2dab557b3f9a79, type: 3}
