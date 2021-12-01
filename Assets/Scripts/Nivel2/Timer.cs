@@ -6,29 +6,33 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 public class Timer : MonoBehaviour
 {
-    public float tiempo = 0.0f;
-    public Text textTimer = null;
+    public float time = 0.0f;
     private float reset = 0.0f;
-    public UnityEvent<bool> EvaluarEvent;
+    public Text textTimer = null;
+    public UnityEvent<bool> unityEvent;
     private bool stopTimer = false;
     void Start(){
-        reset = tiempo;
+        //Cuando el tiempo llegue a 0 reiniciara en la cantidad de la variables
+        //reset, por esto en la instanciación se guarda el valor de time en reset
+        reset = time;
     }
 
     void Update()
     {
-        if(!stopTimer) tiempo -= Time.deltaTime;
-        //textTimer.text = "Time " + tiempo;
-        textTimer.text = "Time: "+TimeFormater(tiempo);
-        if(tiempo <= 0.0f){
+        if(!stopTimer) time -= Time.deltaTime;
+        textTimer.text = "Time: "+TimeFormater(time);
+        if(time <= 0.0f){
             Reset();
-            EvaluarEvent.Invoke(false);
+            //Aquí se invoca el método que cambia a la siguiente pregunta
+            //En este caso se envia falso porque el hecho de que el tiempo
+            //acabe reduce los intentos
+            unityEvent.Invoke(false);
         }
     }
 
     public void Reset()
     {
-        tiempo = reset;
+        time = reset;
     }
 
     public void StartTimer()

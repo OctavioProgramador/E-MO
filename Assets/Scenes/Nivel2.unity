@@ -545,8 +545,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 90}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 140}
+  m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &234167025
 MonoBehaviour:
@@ -614,7 +614,6 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420034}
-  - component: {fileID: 519420033}
   - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
@@ -689,24 +688,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519420033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05642f991edc5f74884d5fa4c52855ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_correctSound: {fileID: 8300000, guid: 320263c8833ba274c92c2bc79cb96758, type: 3}
-  m_incorrectSound: {fileID: 8300000, guid: 1c0d880e6d5d1924e9b44821e93dbc34, type: 3}
-  m_correctColor: {r: 0.27176362, g: 0.9433962, b: 0.030259816, a: 1}
-  m_incorrectColor: {r: 1, g: 0, b: 0, a: 1}
-  m_waitTime: 2.5
-  intentos: 4
 --- !u!82 &519420034
 AudioSource:
   m_ObjectHideFlags: 0
@@ -820,8 +801,8 @@ MonoBehaviour:
   m_correctColor: {r: 0.023584902, g: 1, b: 0.099709965, a: 1}
   m_incorrectColor: {r: 1, g: 0, b: 0, a: 1}
   m_waitTime: 2.5
-  timer: {fileID: 2024268753}
   intentos: 4
+  timer: {fileID: 2024268753}
 --- !u!224 &1415305406 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1326300277122073763, guid: 562c51aab98776244a2ce022e1d9a692, type: 3}
@@ -1365,23 +1346,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26abe22a961ef364eb6679ef6240ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiempo: 5
+  time: 0
   textTimer: {fileID: 128593362}
-  EvaluarEvent:
+  unityEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 519420035}
-        m_TargetAssemblyTypeName: Game_Manager2, Assembly-CSharp
-        m_MethodName: GiveAnswerTimerEnd
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &2056077136
 GameObject:
   m_ObjectHideFlags: 0

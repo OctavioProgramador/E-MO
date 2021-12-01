@@ -12,15 +12,14 @@ public class Game_Manager2 : MonoBehaviour
     [SerializeField] private Color m_correctColor = Color.black;
     [SerializeField] private Color m_incorrectColor = Color.black;
     [SerializeField] private float m_waitTime = 0.0f;
-    
-    public Timer timer = null;
-        
+    [SerializeField] private int intentos = 3;
+
     private QuizDB m_quizDB = null;
     private QuizUI m_quizUI = null;
     private AudioSource m_audioSource = null;
 
     private int score = 0;
-    [SerializeField] private int intentos = 3;
+    public Timer timer = null;
 
     private void Start()
     {
@@ -31,7 +30,7 @@ public class Game_Manager2 : MonoBehaviour
     }
     public void NextQuestion()
     {
-       timer.StartTimer();
+        timer.StartTimer();
         m_quizUI.Construtc(m_quizDB.GetRandom(), GiveAnswer);
     }
 
